@@ -1,0 +1,8 @@
+#!/bin/bash
+
+## Description: Installs frontend dependencies
+## Usage: frontend-install
+## Example: "ddev frontend-install"
+
+cd frontend && npm ci
+

@@ -1,0 +1,30 @@
+---
+import pascalcase from 'pascalcase'
+import slugify from 'slugify'
+import i18next from "i18next";
+import i18nextConfig from '../../astro-i18next.config.mjs'
+
+const { slug } = Astro.params;
+
+/* Get page content from API */
+let pageContent = await fetch(`${import.meta.env.API_HOST}${slug ? slug : ''}`)
+let pageContentData = await pageContent.json()
+
+/* Get Language Code from json response */
+const languageCode = pageContentData.languageCode ? pageContentData.languageCode === i18nextConfig.defaultLocale ? '' : pageContentData.languageCode : ''
+const slugToCompare = slugify(`${languageCode}/${pageContentData.slug}`)
+
+/* Redirect to 404 if slug does not match response */
+if (slugToCompare !== slugify(slug ? slug : '')) {
+  return Astro.redirect(`${languageCode !== '' ? '/' + languageCode : ''}/404`);
+}
+
+/* Change language if needed */
+if (i18next.language !== pageContentData.languageCode || i18next.language !== i18nextConfig.defaultLocale) {
+  await i18next.changeLanguage(pageContentData.languageCode)
+}
+
+/* Dynamically import Layout from typo3 page settings */
+const Layout = await import(`../layouts/${pascalcase(pageContentData.appearance.backendLayout)}.astro`);
+---
+<Layout.default title={pageContentData.meta.title} content={pageContentData.content} i18n={pageContentData.i18n} />

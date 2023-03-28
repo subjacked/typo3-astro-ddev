@@ -1,0 +1,8 @@
+#!/bin/bash
+
+## Description: Installs typo3 composer packages
+## Usage: typo3-install
+## Example: "ddev typo3-install"
+
+cd typo3 && composer install
+

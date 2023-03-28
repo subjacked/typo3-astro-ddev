@@ -1,0 +1,6 @@
+######################
+#### DEPENDENCIES ####
+######################
+@import 'EXT:headless/Configuration/TypoScript/constants.typoscript'
+
+providerExtensionName = Jwied

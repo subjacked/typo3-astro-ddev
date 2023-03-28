@@ -1,0 +1,18 @@
+---
+const { slug } = Astro.params;
+
+const res = await fetch(`${import.meta.env.API_HOST}${slug ? slug : ''}?type=834`)
+const menu = await res.json()
+interface NavItem {
+  title: string
+  link: string
+}
+
+---
+<div class="flex flex-row">
+  {
+    menu.navigation[0].children.map( (navItem: NavItem) => (
+      <a rel="prefetch" class="py-2 px-5 bg-blue-500" class:list={{'bg-red-500': navItem.link === `/${slug}`}} href={navItem.link}>{navItem.title}</a>
+    ))
+  }
+</div>

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+## Description: Import the database
+## Usage: import-database
+## Example: "ddev import-database"
+
+gunzip -c data/database.sql.gz | mysql -udb -pdb db
+
+./typo3/vendor/bin/typo3 database:updateschema
+./typo3/vendor/bin/typo3cms cache:flush

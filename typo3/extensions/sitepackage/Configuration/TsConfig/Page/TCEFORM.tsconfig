@@ -1,0 +1,9 @@
+#
+# TCEFORM
+#
+TCEFORM.tt_content.header_position {
+   removeItems = center,left,right
+   addItems {
+    text-center = Center
+   }
+}

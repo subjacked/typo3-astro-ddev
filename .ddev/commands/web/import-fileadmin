@@ -1,0 +1,10 @@
+#!/bin/bash
+
+## Description: Imports the fileadmin directory
+## Usage: import-fileadmin
+## Example: "ddev import-fileadmin"
+
+tar -xzf data/fileadmin.tar.gz typo3/public/fileadmin
+
+# Fix folder structure
+./vendor/bin/typo3 install:fixfolderstructure

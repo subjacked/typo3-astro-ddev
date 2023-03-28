@@ -1,0 +1,28 @@
+---
+import pascalcase from 'pascalcase'
+interface Props {
+  content: any | undefined
+}
+
+const { content } = Astro.props
+---
+<div>
+{
+  content?.map(async (contentElement : any) => {
+    try {
+      const Frame = (await import(`../frames/${pascalcase(contentElement.appearance.layout)}.astro`)).default
+      const ContentElement = (await import(`../contentElements/${pascalcase(contentElement.type)}.astro`)).default
+      return (
+        <Frame>
+          <ContentElement {...contentElement} />
+        </Frame>
+      )
+    } catch (error) {
+      const Debug = (await import(`../utilities/Debug.astro`)).default
+      return (
+        <Debug contentElement={contentElement} />
+      )
+    }
+  })
+}
+</div>

@@ -1,0 +1,13 @@
+######################
+#### DEPENDENCIES ####
+######################
+@import 'EXT:headless/Configuration/TypoScript/setup.typoscript'
+
+page {
+    10 {
+        fields {
+            languageCode = TEXT
+            languageCode.data = sitelanguage:iso-639-1
+        }
+    }
+}

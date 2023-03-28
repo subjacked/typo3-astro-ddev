@@ -1,0 +1,61 @@
+imports:
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+editor:
+    config:
+        contentsCss: "EXT:sitepackage/Resources/Public/Css/rte.css"
+
+        stylesSet:
+            - { name: "Skyline", element: "p", attributes: { 'class': 'skyline' } }
+
+        toolbarGroups:
+            - { name: styles, groups: [ format, styles ] }
+            - { name: basicstyles, groups: [ basicstyles ] }
+            - { name: paragraph, groups: [ list, indent, blocks, align ] }
+            - "/"
+            - { name: links, groups: [ links ] }
+            - { name: clipboard, groups: [ clipboard, cleanup, undo ] }
+            - { name: editing, groups: [ spellchecker ] }
+            - { name: insert, groups: [ insert ] }
+            - { name: tools, groups: [ table, specialchar ] }
+            - { name: document, groups: [ mode ] }
+
+        format_tags: "p;h1;h2;h3;h4;h5;pre"
+
+        justifyClasses:
+            - text-left
+            - text-center
+            - text-right
+            - text-justify
+
+        removePlugins: null
+
+        removeButtons:
+            - Anchor
+            - Underline
+            - Strike
+
+classesAnchor:
+    page:
+        class: 'link-page'
+        type: 'page'
+    folder:
+        class: 'link-folder'
+        type: 'folder'
+    file:
+        class: 'link-file'
+        type: 'file'
+    external:
+        class: 'link-external'
+        type: 'url'
+    mail:
+        class: 'link-mail'
+        type: 'mail'
+
+buttons:
+    link:
+        properties:
+            class:
+                allowedClasses: 'link-arrow, link-page, link-folder, link-file, link-external, link-mail'

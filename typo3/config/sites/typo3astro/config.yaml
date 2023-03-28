@@ -1,0 +1,36 @@
+base: 'https://api.typo3astro.ddev.site/'
+errorHandling:
+  -
+    errorCode: 404
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=6'
+languages:
+  -
+    title: English
+    enabled: true
+    languageId: 0
+    base: /
+    typo3Language: default
+    locale: en_US.UTF-8
+    iso-639-1: en
+    navigationTitle: English
+    hreflang: en-us
+    direction: ltr
+    flag: us
+  -
+    title: German
+    enabled: true
+    base: /de
+    typo3Language: de
+    locale: de_DE.UTF8
+    iso-639-1: de
+    websiteTitle: ''
+    navigationTitle: Deutsch
+    hreflang: de-DE
+    direction: ltr
+    fallbackType: strict
+    fallbacks: ''
+    flag: de
+    languageId: 1
+rootPageId: 1
+websiteTitle: 'Typo3 Astro'

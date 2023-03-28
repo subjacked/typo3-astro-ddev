@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## Description: Exports the fileadmin directory
+## Usage: export-fileadmin
+## Example: "ddev export-fileadmin"
+
+tar --exclude='*/_processed_' --exclude='*/_temp_' -czf data/fileadmin.tar.gz typo3/public/fileadmin

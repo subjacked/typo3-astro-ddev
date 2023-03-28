@@ -1,0 +1,23 @@
+---
+export interface Props {
+  i18n: i18nItem[]
+}
+
+export interface i18nItem {
+  title: string
+  link: string
+  available: boolean
+}
+
+const { i18n } = Astro.props
+---
+<ul>
+  {
+    i18n.map((item : i18nItem) => {
+      return (
+        <li><a class="" class:list={{'opacity-50' : !item.available}} href={item.link}>{item.title}</a></li>
+      )
+    })
+  }
+
+</ul>

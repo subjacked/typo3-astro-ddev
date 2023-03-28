@@ -1,0 +1,8 @@
+#!/bin/bash
+
+## Description: Starts frontend dev
+## Usage: frontend-dev
+## Example: "ddev frontend-dev"
+
+cd frontend && npm run dev
+

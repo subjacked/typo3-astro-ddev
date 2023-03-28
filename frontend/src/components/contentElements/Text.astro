@@ -1,0 +1,29 @@
+---
+import Header from './mixins/Header.astro'
+import { Markup } from 'astro-remote';
+export interface Props {
+  content: ContentElement
+}
+
+interface ContentElement {
+  headerLayout: string
+  headerPosition: string
+  header: string
+  subheader: string
+  bodytext: string
+}
+
+const { content } = Astro.props
+---
+<div>
+  <Header headerLayout={content.headerLayout} headerClass={content.headerPosition}>
+    {content.header}
+    <slot name="subheader">
+      {content.subheader}
+    </slot>
+  </Header>
+  {
+    content.bodytext &&
+    <Markup content={content.bodytext} />
+  }
+</div>

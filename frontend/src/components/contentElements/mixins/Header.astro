@@ -1,0 +1,22 @@
+---
+import { Element as Header } from 'astro-json-element';
+
+interface Props {
+  headerLayout: string,
+  headerClass?: string,
+}
+
+const { headerLayout, headerClass, ...attrs } = Astro.props
+const headerTag = `h${parseInt(headerLayout) + 1}`
+
+const myHeader = {
+    tag: headerTag,
+}
+
+---
+<header class={headerClass} {...attrs}>
+  <Header {...myHeader} class="text-2xl">
+    <slot />
+  </Header>
+  <slot name="subheader" />
+</header>

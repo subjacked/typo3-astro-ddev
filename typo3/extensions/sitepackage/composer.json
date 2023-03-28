@@ -1,0 +1,23 @@
+{
+    "name": "jwied/sitepackage",
+    "type": "typo3-cms-extension",
+    "description": "Sitepackage from jwied*",
+    "homepage": "https://www.jwied.de",
+    "license": ["GPL-2.0-or-later"],
+    "keywords": ["TYPO3 CMS"],
+    "version": "2.0.0",
+    "require": {
+        "typo3/cms-core": "^12.0",
+        "typo3/cms-rte-ckeditor": "^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JWIED\\Sitepackage\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "sitepackage"
+        }
+    }
+}

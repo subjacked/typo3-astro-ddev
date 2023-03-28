@@ -1,0 +1,10 @@
+#!/bin/bash
+
+## Description: Exports the database
+## Usage: export-database
+## Example: "ddev export-database"
+
+./typo3/vendor/bin/typo3 referenceindex:update
+./typo3/vendor/bin/typo3 cache:flush
+
+mysqldump -udb -pdb db --add-drop-table --no-tablespaces | gzip > data/database.sql.gz

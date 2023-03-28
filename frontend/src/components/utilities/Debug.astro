@@ -1,0 +1,27 @@
+---
+import pascalcase from 'pascalcase'
+import { Debug } from 'astro/components'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import '@styles/debug.scss';
+
+
+export interface Props {
+  contentElement: any
+}
+
+const { contentElement } = Astro.props
+---
+<div class="my-10 bg-red-300 rounded-md p-6 debug">
+  <h1 class="bg-red-600 rounded-md mb-8 py-2 px-3 text-white text-2xl font-bold flex items-center">
+    <a target="_blank" class="bg-white px-1 text-red-600 text-xs mr-2 rounded" href={`${import.meta.env.API_HOST}/typo3/record/edit?edit[tt_content][${contentElement.id}]=edit`}>Content-Element uid:{contentElement.id}</a>Frame or Content-Element missing
+  </h1>
+  <Accordion>
+    <AccordionItem header={`Frame ../frames/${pascalcase(contentElement.appearance.layout)}.astro`}>
+      <div>
+        <Debug frame={contentElement.appearance.layout} />
+      </div>
+    </AccordionItem>
+    <AccordionItem header={`Content-Element ../contentElements/${pascalcase(contentElement.type)}.astro`}>
+      <Debug content-element={contentElement} />
+  </Accordion>
+</div>

@@ -1,0 +1,8 @@
+#####################
+#### SITEPACKAGE ####
+#####################
+mod.wizards.newContentElement.wizardItems.sitepackage {
+    header = Custom Elements
+    elements {
+    }
+}

@@ -1,0 +1,23 @@
+---
+import { Debug } from 'astro/components'
+
+interface ContentElement {
+  header: string
+  body: string
+}
+
+interface Props {
+  content: ContentElement
+}
+
+const { content } = Astro.props
+---
+
+<div>
+  <h1 class="text-2xl font-bold bg-red-500 rounded-full p-5 mt-10 text-white">
+
+    {content.header}
+
+  </h1>
+</div>
+<Debug {content} />

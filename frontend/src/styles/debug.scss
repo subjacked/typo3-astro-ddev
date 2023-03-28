@@ -1,0 +1,36 @@
+.debug {
+  .accordion__item {
+    @apply mb-2
+  }
+  .accordion__header,
+  .accordion__item:last-of-type .accordion__header {
+    @apply bg-red-600 text-white text-sm font-bold rounded-md p-2 border-none;
+  }
+
+  .header__toggle-indicator {
+    @apply w-3 mt-0.5 mr-0.5;
+  }
+
+  .is-active .accordion__header {
+    @apply bg-red-600 border-none;
+  }
+
+  .accordion__item .accordion__header:focus {
+    @apply outline-none shadow-none;
+  }
+  .accordion__panel,
+  .accordion__item:only-of-type .accordion__panel, .accordion__item:last-of-type .accordion__panel {
+    @apply rounded-b-md border-none bg-white/50;
+  }
+
+  .panel__inner {
+    @apply p-5 pb-2;
+  }
+
+  .astro-debug {
+    @apply pb-0;
+    .astro-debug-header {
+      @apply bg-red-700 py-1;
+    }
+  }
+}
